@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const faderSvg = document.getElementById('fader-svg');
     const valueInput = document.getElementById('value-input');
     const faderContainer = document.getElementById('fader-container');
+    const checkbox = document.getElementById('check');
     const faderHeight = faderSvg.clientHeight;
     const containerHeight = faderContainer.clientHeight;
 
@@ -9,12 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let startY;
     let startTop;
 
+    checkbox.addEventListener("change", function () {
+        valueInput.disabled = !checkbox.checked;
+    })
+
     faderSvg.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startY = e.clientY;
-        startTop = faderSvg.offsetTop;
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
+        if (checkbox.checked) {
+            isDragging = true;
+            startY = e.clientY;
+            startTop = faderSvg.offsetTop;
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', onMouseUp);
+        }
     });
 
     function onMouseMove(e) {

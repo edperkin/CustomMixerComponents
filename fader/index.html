@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div id="input-container">
+    <input type="number" id="value-input" min="0" max="100" value="100" disabled>
+</div>
 <div id="fader-container">
     <div id="fader">
         <img id="track-svg" draggable="false" src="FaderTrackRender.svg" alt="fader-track">
         <img id="fader-svg" draggable="false" src="FaderRender.svg" alt="fader">
     </div>
-</div>
-<div id="input-container">
-    <input type="number" id="value-input" min="0" max="100" value="100">
+    <input type='checkbox' id='check'/>
+    <label for="check" class="custom-checkbox">
+        <img src="icons/drum-solid.svg" class="check-icon" alt="drum"/>
+    </label>
 </div>
 </body>
 </html>
